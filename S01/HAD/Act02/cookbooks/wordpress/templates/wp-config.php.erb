@@ -1,0 +1,28 @@
+<?php
+
+$database_name     = '<%= node['wordpress']['db_name'] %>';
+$database_user     = '<%= node['wordpress']['db_user'] %>';
+$database_password = '<%= node['wordpress']['db_pass'] %>';
+$database_host     = 'localhost';
+$table_prefix      = '<%= node['wordpress']['db_prefix'] %>';
+
+// Configuración de la base de datos
+define( 'DB_NAME', $database_name );
+define( 'DB_USER', $database_user );
+define( 'DB_PASSWORD', $database_password );
+define( 'DB_HOST', $database_host );
+define( 'DB_CHARSET', 'utf8' );
+define( 'DB_COLLATE', '' );
+
+define( 'WP_DEBUG', false );
+define( 'AUTOMATIC_UPDATER_DISABLED', true );
+define( 'DISABLE_WP_CRON', true );
+
+
+// Ruta absoluta al directorio de WordPress
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+}
+
+// Inicializar WordPress
+require_once ABSPATH . 'wp-settings.php';
